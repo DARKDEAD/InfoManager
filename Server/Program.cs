@@ -86,7 +86,7 @@ namespace Server
                             
                             Output("Broadcasting '" + chat + "'");
 
-                            SelectCommand(chat);
+                            SelectCommand(chat, im.SenderConnection);
 
                             // broadcast this to all connections, except sender
                             List<NetConnection> all = s_server.Connections; // get copy
@@ -108,14 +108,21 @@ namespace Server
             }
         }
         //определяем что хочет от нас клиент (что за запрос был им прислан)
-        private static void SelectCommand(string comm)
+        private static void SelectCommand(string comm, NetConnection im)
         {
             
             string[] command = comm.Split(':');
             //запрос на подключение, первое слово до ":" является LOGIN
             if (command[0] == "LOGIN")
-            {
-                MessageBox.Show("Login");
+            {                
+                //подключаемся к БД
+                //запрашиваем данные
+                //проверем валидность пользователя
+
+                //отправляем ответ клиенту
+                NetOutgoingMessage om = s_server.CreateMessage();
+                om.Write("LOGIN:OK" + im.RemoteUniqueIdentifier);
+                s_server.SendMessage(om, im, NetDeliveryMethod.ReliableOrdered, 0);
             }
         }
 

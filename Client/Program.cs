@@ -81,6 +81,25 @@ namespace Client
             s_client.FlushSendQueue();
         }
 
+        //определяем ответ который получили от сервера
+        private static void SelectCommand(string comm)
+        {
+
+            string[] command = comm.Split(':');
+            //запрос на подключение, первое слово до ":" является LOGIN
+            if (command[0] == "LOGIN")
+            {
+                if (command[0] == "OK")
+                {
+
+                }
+                else
+                {
+                    
+                }                    
+            }
+        }
+
         public static void GotMessage(object peer)
         {
 
@@ -114,6 +133,8 @@ namespace Client
                         break;
                     case NetIncomingMessageType.Data:
                         string chat = im.ReadString();
+                        SelectCommand(chat);
+
                         Output(chat);
                         break;
                     default:
