@@ -77,14 +77,16 @@ namespace Server
                             NetConnectionStatus status = (NetConnectionStatus)im.ReadByte();
                             string reason = im.ReadString();
                             Output(NetUtility.ToHexString(im.SenderConnection.RemoteUniqueIdentifier) + " " + status + ": " + reason);
-
+                            
                             UpdateConnectionsList();
                             break;
                         case NetIncomingMessageType.Data:
                             // входящее сообщение от клиентов
                             string chat = im.ReadString();
-
+                            
                             Output("Broadcasting '" + chat + "'");
+
+                            SelectCommand(chat);
 
                             // broadcast this to all connections, except sender
                             List<NetConnection> all = s_server.Connections; // get copy
@@ -105,6 +107,18 @@ namespace Server
                 Thread.Sleep(1);
             }
         }
+        //определяем что хочет от нас клиент (что за запрос был им прислан)
+        private static void SelectCommand(string comm)
+        {
+            
+            string[] command = comm.Split(':');
+            //запрос на подключение, первое слово до ":" является LOGIN
+            if (command[0] == "LOGIN")
+            {
+                MessageBox.Show("Login");
+            }
+        }
+
         private static void UpdateConnectionsList()
         {
             s_form.lstClients.Items.Clear();

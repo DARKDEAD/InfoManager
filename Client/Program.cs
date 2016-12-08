@@ -15,6 +15,7 @@ namespace Client
     static class Program
     {
         private static NetClient s_client;
+        private static NetPeer s_peer;
         private static frmLogin s_form;
         private static NetPeerSettingsWindow s_settingsWindow;
 
@@ -26,6 +27,7 @@ namespace Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             s_form = new frmLogin();
 
             NetPeerConfiguration config = new NetPeerConfiguration("Login");
@@ -48,30 +50,40 @@ namespace Client
 
         public static void TryConnect()
         {
-            s_form.DisableInput();
+
+            // s_form.DisableInput();
             int port;
             Int32.TryParse(s_form.textBox3.Text, out port);
-            Program.Connect(s_form.textBox4.Text, port);
+            Program.Connect(s_form.textBox4.Text, port);            
+
         }
 
-        // called by the UI
+        public static void CheckLogin(string Login_Pass)
+        {
+            Program.Send(Login_Pass);
+            //s_client.Shutdown("Bay");
+        }
+
         public static void Connect(string host, int port)
         {
             s_client.Start();
             NetOutgoingMessage hail = s_client.CreateMessage("This is the hail message");
-            s_client.Connect(host, port, hail);
+            s_client.Connect(host, port, hail);            
         }
         // called by the UI
         public static void Send(string text)
         {
             NetOutgoingMessage om = s_client.CreateMessage(text);
+
             s_client.SendMessage(om, NetDeliveryMethod.ReliableOrdered);
+
             Output("Sending '" + text + "'");
             s_client.FlushSendQueue();
         }
 
         public static void GotMessage(object peer)
         {
+
             NetIncomingMessage im;
             while ((im = s_client.ReadMessage()) != null)
             {
@@ -94,7 +106,7 @@ namespace Client
                             s_form.DisableInput();
 
                         if (status == NetConnectionStatus.Disconnected)
-                            s_form.toolStripStatusLabel1.Text = "Connect";
+                            s_form.toolStripStatusLabel1.Text = "Соединение с сервером...";
 
                         string reason = im.ReadString();
                         Output(status.ToString() + ": " + reason);
@@ -109,6 +121,7 @@ namespace Client
                         break;
                 }
             }
+
         }
 
     }

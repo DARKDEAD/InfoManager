@@ -11,9 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network", "..\..\..\C.Net\lidgren-network-gen3-2013-05-07\Lidgren-network-gen3\Lidgren.Network\Lidgren.Network.csproj", "{49BA1C69-6104-41AC-A5D8-B54FA9F696E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesCommon", "..\..\..\C.Net\lidgren-network-gen3-2013-05-07\Lidgren-network-gen3\Samples\SamplesCommon\SamplesCommon.csproj", "{773069DA-B66E-4667-ADCB-0D215AD8CF3E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{4D4655A6-6156-401B-92FE-35D7D96B6F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesCommon", "..\..\..\C.Net\lidgren-network-gen3-2013-05-07\Lidgren-network-gen3\Samples\SamplesCommon\SamplesCommon.csproj", "{773069DA-B66E-4667-ADCB-0D215AD8CF3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +29,14 @@ Global
 		{49BA1C69-6104-41AC-A5D8-B54FA9F696E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49BA1C69-6104-41AC-A5D8-B54FA9F696E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49BA1C69-6104-41AC-A5D8-B54FA9F696E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D4655A6-6156-401B-92FE-35D7D96B6F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D4655A6-6156-401B-92FE-35D7D96B6F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D4655A6-6156-401B-92FE-35D7D96B6F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D4655A6-6156-401B-92FE-35D7D96B6F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{773069DA-B66E-4667-ADCB-0D215AD8CF3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

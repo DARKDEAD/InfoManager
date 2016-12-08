@@ -35,8 +35,10 @@ namespace Client
             // Send
             if (!string.IsNullOrEmpty(txtLogin.Text) & !string.IsNullOrEmpty(txtPassword.Text))
             {
-                string Login_Pass = txtLogin.Text + "&" + txtPassword.Text;
+                string Login_Pass = "LOGIN:"+txtLogin.Text + ":" + txtPassword.Text;
+
                 Program.Send(Login_Pass);
+
             }
                 
            // textBox1.Text = "";
