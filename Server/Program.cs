@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Lidgren.Network;
 using SamplesCommon;
 using System.Threading;
+using System.Net;
 
 namespace Server
 {
@@ -34,6 +35,7 @@ namespace Server
             int port;
             Int32.TryParse(s_form.txtPort.Text, out port);
             config.Port = port;
+            //config.LocalAddress = IPAddress.Parse("178.35.199.195");
 
             s_server = new NetServer(config);
 
